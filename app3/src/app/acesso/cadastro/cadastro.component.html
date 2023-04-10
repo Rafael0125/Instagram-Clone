@@ -2,37 +2,53 @@
   <div class="card-body">
     <div class="card-title"></div>
     
-    <form>
+    <form [formGroup]="formulario" novalidate (ngSubmit)="cadastrarUsuario()">
       <div class="form-group my-2">
         <input 
           type="email" 
           class="form-control" 
           placeholder="E-mail"
+          formControlName='email'
         >
+        <small *ngIf="formulario.get('email')?.valid && formulario.get('email')?.touched" class="form-text text-success">Ok</small>
+        <small *ngIf="formulario.get('email')?.invalid && formulario.get('email')?.touched" class="form-text text-danger">Insira um email válido</small>
+
       </div>
       <div class="form-group my-2">
         <input 
           type="text"
           class="form-control" 
           placeholder="Nome completo"
+          formControlName='nome_completo'
         >
+        <small *ngIf="formulario.get('nome_completo')?.valid && formulario.get('nome_completo')?.touched" class="form-text text-success">Ok</small>
+        <small *ngIf="formulario.get('nome_completo')?.invalid && formulario.get('nome_completo')?.touched" class="form-text text-danger">Deve conter no minimo 3 caracteres</small>
+
       </div>
       <div class="form-group my-2">
         <input 
           type="text"
           class="form-control" 
           placeholder="Nome de usuário"
+          formControlName='nome_usuario'
         >
+        <small *ngIf="formulario.get('nome_usuario')?.valid && formulario.get('nome_usuario')?.touched" class="form-text text-success">Ok</small>
+        <small *ngIf="formulario.get('nome_usuario')?.invalid && formulario.get('nome_usuario')?.touched" class="form-text text-danger">Deve conter no minimo 3 caracteres</small>
+
       </div>
       <div class="form-group my-2">
         <input 
           type="password"
           class="form-control" 
           placeholder="Senha"
+          formControlName='senha'
         >
+        <small *ngIf="formulario.get('senha')?.valid && formulario.get('senha')?.touched" class="form-text text-success">Ok</small>
+        <small *ngIf="formulario.get('senha')?.invalid && formulario.get('senha')?.touched" class="form-text text-danger">Deve conter no minimo 6 caracteres</small>
+
       </div>
       <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary btn-block">Cadastre-se</button>
+        <button type="submit" [disabled]= "!formulario.valid" class="btn btn-primary btn-block">Cadastre-se</button>
       </div>      
     </form>
     <hr />

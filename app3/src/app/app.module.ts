@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-// Animações 
+import { ReactiveFormsModule } from '@angular/forms';
+import { Autenticacao } from './autenticacao.service';
 
+// Animações 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,9 +25,12 @@ import { CadastroComponent } from './acesso/cadastro/cadastro.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    Autenticacao
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
