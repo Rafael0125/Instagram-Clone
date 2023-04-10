@@ -43,7 +43,7 @@ export class AcessoComponent implements OnInit{
   public estadoBanner : string = 'criado'
   public estadoPainel : string = 'criado'
 
-  public cadastro : boolean = true
+  public cadastro : boolean = false
 
   constructor(){ }
 
@@ -54,10 +54,10 @@ export class AcessoComponent implements OnInit{
   }
 
   public inicioDaAnimacao():void{
-    console.log('Inicio da animação')
+    //console.log('Inicio da animação')
   }
   public fimDaAnimacao():void{
-    console.log('Fim da animação')
+    //console.log('Fim da animação')
   }
 
 }
